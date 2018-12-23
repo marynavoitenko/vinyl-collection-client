@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VinylsList from '../components/VinylsList';
 
 class VinylsCollectionPage extends Component {
   state = {
@@ -21,7 +22,12 @@ class VinylsCollectionPage extends Component {
     const { vinyls, isFetching } = this.state;
 
     return (
-      <div>{isFetching ? 'Loading...' : vinyls[0].name}</div>
+      <div className='vinyls-collection-page'>
+        {isFetching ?
+          'Loading...'
+          : <VinylsList vinyls={vinyls} />
+        }
+      </div>
     );
   }
 }
