@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
-import VinylsList from '../components/VinylsList';
+import ArtistsList from '../components/ArtistsList';
 
-class VinylsCollectionPage extends Component {
+class ArtistsPage extends Component {
   state = {
-    vinyls: [],
+    artists: [],
     isFetching: true
   }
 
   componentDidMount() {
-    fetch('api/vinyls')
+    fetch('api/artists')
       .then(response => response.json())
       .then(data => {
         this.setState({
-          vinyls: data,
+          artists: data,
           isFetching: false
         });
       })
   }
 
   render() {
-    const { vinyls, isFetching } = this.state;
+    const { artists, isFetching } = this.state;
 
     return (
-      <div className='vinyls-collection-page'>
+      <div className='artists-page'>
         {isFetching ?
           'Loading...'
-          : <VinylsList vinyls={vinyls} />
+          : <ArtistsList artists={artists} />
         }
       </div>
     );
   }
 }
 
-export default VinylsCollectionPage;
+export default ArtistsPage;

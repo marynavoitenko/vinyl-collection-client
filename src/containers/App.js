@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import VinylsCollectionPage from './VinylsCollectionPage';
+import NavBar from '../components/NavBar';
+import VinylsPage from './VinylsPage';
+import ArtistsPage from './ArtistsPage';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/" component={VinylsCollectionPage} />
+        <Fragment>
+          <NavBar />
+          <Route exact path='/' component={VinylsPage} />
+          <Route path='/vinyls' component={VinylsPage} />
+          <Route path='/artists' component={ArtistsPage} />
+        </Fragment>
       </Router>
     );
   }
