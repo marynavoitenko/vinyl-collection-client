@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Vinyl = ({ vinyl }) => {
-  const { code, name } = vinyl;
+  const { code, title } = vinyl;
 
   return (
     <div className='vinyl'>
-      {code} - {name}
+      {code} - {title}
     </div>
   );
 }
