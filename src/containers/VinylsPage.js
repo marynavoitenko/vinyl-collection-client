@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchVinyls } from '../actions/vinyls';
 import VinylsList from '../components/VinylsList';
 
 class VinylsPage extends Component {
-  state = {
-    vinyls: [],
-    isFetching: true
-  }
-
   componentDidMount() {
-    fetch('api/vinyls')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          vinyls: data,
-          isFetching: false
-        });
-      })
+    this.props.fetchVinyls();
   }
 
   render() {
-    const { vinyls, isFetching } = this.state;
+    const { vinyls, isFetching } = this.props;
 
     return (
       <div className='vinyls-page'>
@@ -32,4 +22,13 @@ class VinylsPage extends Component {
   }
 }
 
-export default VinylsPage;
+const mapStateToProps = state => ({
+  vinyls: state.vinyls.vinyls,
+  isFetching: state.vinyls.isFetching
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchVinyls: () => dispatch(fetchVinyls())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(VinylsPage);
