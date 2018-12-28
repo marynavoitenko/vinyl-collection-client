@@ -1,5 +1,6 @@
 import React from 'react';
 import Artist from './Artist';
+import PropTypes from 'prop-types';
 
 const ArtistsList = ({ artists }) => {
   const renderArtists = artists.map((artist) =>
@@ -11,6 +12,10 @@ const ArtistsList = ({ artists }) => {
       {renderArtists}
     </div>
   );
+}
+
+ArtistsList.propTypes = {
+  artists: PropTypes.array
 }
 
 export default ArtistsList;

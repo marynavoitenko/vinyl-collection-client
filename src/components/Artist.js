@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Artist = ({ artist }) => {
   const { name } = artist;
@@ -8,6 +9,10 @@ const Artist = ({ artist }) => {
       {name}
     </div>
   );
+}
+
+Artist.propTypes = {
+  artist: PropTypes.object
 }
 
 export default Artist;
