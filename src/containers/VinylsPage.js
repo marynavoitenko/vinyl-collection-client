@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
 import { fetchVinyls } from '../actions/vinyls';
 import VinylsList from '../components/VinylsList';
+import VinylShow from './VinylShow';
 
 class VinylsPage extends Component {
   componentDidMount() {
@@ -9,14 +11,14 @@ class VinylsPage extends Component {
   }
 
   render() {
-    const { vinyls, isFetching } = this.props;
+    const { vinyls, match } = this.props;
 
     return (
       <div className='vinyls-page'>
-        {isFetching ?
-          'Loading...'
-          : <VinylsList vinyls={vinyls} />
-        }
+        <Switch>
+          <Route path={`${match.url}/:vinylId`} component={VinylShow}/>
+          <Route exact path={match.url} render={() => <VinylsList vinyls={vinyls} />} />
+        </Switch>
       </div>
     );
   }
