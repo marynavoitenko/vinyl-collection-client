@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import vinyls from './vinyls';
+import artists from './artists';
 
 export default combineReducers({
-  vinyls: vinyls
+  artists,
+  vinyls
 });

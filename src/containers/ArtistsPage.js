@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchArtists } from '../actions/artists';
 import ArtistsList from '../components/ArtistsList';
 
 class ArtistsPage extends Component {
-  state = {
-    artists: [],
-    isFetching: true
-  }
-
   componentDidMount() {
-    fetch('api/artists')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          artists: data,
-          isFetching: false
-        });
-      })
+    this.props.fetchArtists();
   }
 
   render() {
-    const { artists, isFetching } = this.state;
+    const { artists, isFetching } = this.props;
 
     return (
       <div className='artists-page'>
@@ -32,4 +22,13 @@ class ArtistsPage extends Component {
   }
 }
 
-export default ArtistsPage;
+const mapStateToProps = state => ({
+  artists: state.artists.artists,
+  isFetching: state.artists.isFetching
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchArtists: () => dispatch(fetchArtists())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistsPage);
