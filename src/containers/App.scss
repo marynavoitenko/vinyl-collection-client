@@ -1,0 +1,69 @@
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    // min-height: 100vh;
+}
+
+/* ------- NAVBAR ------- */
+
+.NavBar {
+    background: #fdfdfd;
+    height: 20px;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center;
+}
+
+.NavLink {
+    text-decoration: none;
+    color: #777;
+    margin: 0 20px;
+}
+
+.NavLink:hover, .NavLink:active, .NavLink.active {
+    color: #673ab7;
+    border-bottom-color: #673ab7;
+  }
+
+/* ---------- BACKGROUND ------- */
+
+.container {
+  background-image: url('../assets/images/homepage.jpg');
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  max-height: 100%;
+}
+
+/* ---------- VINYLS / ARTISTS PAGE ------- */
+
+.vinyls-page, .artists-page {
+    margin: 30px;
+    background-color: white;
+    max-height: 100%;
+}
+
+/* ---------- VINYLS / ARTISTS LIST ------- */
+
+.vinyls-list, .artists-list {
+  max-height: 100%;
+  padding: 20px 30px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+/* ---------- VINYL / ARTIST ------- */
+
+.vinyl, .artist {
+  display: flex;
+}
